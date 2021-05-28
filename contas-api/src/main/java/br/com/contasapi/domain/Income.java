@@ -6,6 +6,8 @@ public class Income {
 
 	private int code;
 	private LocalDate dateIncome;
+	private User user;
+	private TypeIncome typeIncome;
 	private float value;
 	
 	public int getCode() {
@@ -26,7 +28,17 @@ public class Income {
 	public void setValue(float value) {
 		this.value = value;
 	}
-
-	
-	
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	public TypeIncome getTypeIncome() {
+		return typeIncome;
+	}
+	public void setTypeIncome(TypeIncome typeIncome) {
+		this.typeIncome = typeIncome;
+	}
+		
 }

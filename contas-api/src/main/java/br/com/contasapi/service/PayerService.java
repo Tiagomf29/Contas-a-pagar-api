@@ -7,36 +7,40 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import br.com.contasapi.domain.Payer;
+import br.com.contasapi.genericsinterfaces.GenericsCrud;
 import br.com.contasapi.repository.PayerRespository;
 
 @Service
-public class PayerService {
+public class PayerService implements GenericsCrud<Payer>{
 
 	@Autowired
 	PayerRespository payerRepository;
-	
-	public ResponseEntity<Payer> insertPayer(Payer payer) {		
-		return ResponseEntity.ok(payerRepository.save(payer));		
-	}
-	
-	public ArrayList<Payer> allListPayers(){		
-		return (ArrayList<Payer>) payerRepository.findAll();	    		
-	}
-	
-	public ResponseEntity<Payer> updatePayer(Payer payer) {
 		
-		if(payer.getCode() > 0) {
-			return ResponseEntity.ok(payerRepository.save(payer));		
+	@Override
+	public ResponseEntity<Payer> insert(Payer t) {
+		return ResponseEntity.ok(payerRepository.save(t));	
+	}
+
+	@Override
+	public ResponseEntity<Payer> update(Payer t) {		
+		
+		if(t.getCode() > 0) {	
+			
+			return ResponseEntity.ok(payerRepository.save(t));		
 		}
 	  
 		return ResponseEntity.notFound().build();
 	}
-	
-	public ResponseEntity<Payer>deletePayer(int cod){
-		
-		payerRepository.deleteById(cod);
-		
+
+	@Override
+	public ResponseEntity<Payer> delete(int id) {
+		payerRepository.deleteById(id);		
 		return ResponseEntity.noContent().build();
+	}
+
+	@Override
+	public ArrayList<Payer> allList() {
+		return (ArrayList<Payer>) payerRepository.findAll();
 	}
 	
 }

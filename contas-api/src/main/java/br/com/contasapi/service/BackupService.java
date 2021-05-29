@@ -1,8 +1,6 @@
 package br.com.contasapi.service;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,9 +19,9 @@ public class BackupService implements GenericsCrud<Backup> {
 	@Override
 	public ResponseEntity<Backup> insert(Backup t) {
 		
-		Optional<List<Backup>> newBackup = Optional.ofNullable(backupRepository.findAll());
+		ArrayList<Backup>newBackup = (ArrayList<Backup>) backupRepository.findAll();
 		
-		if(newBackup.equals("[ ]")) {		
+		if(newBackup.isEmpty()) {		
 			return ResponseEntity.ok(backupRepository.save(t));
 		}
 		

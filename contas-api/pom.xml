@@ -70,6 +70,13 @@
           <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
 	    		
+		<!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-runner -->
+		<dependency>
+		    <groupId>org.junit.platform</groupId>
+		    <artifactId>junit-platform-runner</artifactId>
+		    <version>1.8.0-M1</version>
+		    <scope>test</scope>
+		</dependency>	    		
 	</dependencies>
 	<build>
 		<plugins>

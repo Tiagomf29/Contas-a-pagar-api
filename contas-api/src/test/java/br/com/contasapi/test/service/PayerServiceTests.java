@@ -24,7 +24,7 @@ import br.com.contasapi.service.PayerService;
 @RunWith(SpringRunner.class)
 @ActiveProfiles("test")
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class PayerServiceTeste {
+public class PayerServiceTests {
 	
 	@Autowired
 	PayerService payerService;

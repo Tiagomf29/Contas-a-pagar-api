@@ -49,6 +49,4 @@ public class PayerService implements GenericsCrud<Payer>{
 		return (ArrayList<Payer>) payerRepository.findById(cod); 
 	}
 
-
-	
 }

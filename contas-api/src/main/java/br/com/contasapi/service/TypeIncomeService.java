@@ -1,12 +1,14 @@
 package br.com.contasapi.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import br.com.contasapi.domain.TypeIncome;
+import br.com.contasapi.functions.utils.GenericsFunctions;
 import br.com.contasapi.genericsinterfaces.GenericsCrud;
 import br.com.contasapi.repository.TypeIncomeRepository;
 
@@ -17,18 +19,19 @@ public class TypeIncomeService implements GenericsCrud<TypeIncome>{
 	TypeIncomeRepository typeIncomeRepository;
 	
 	@Override
-	public ResponseEntity<TypeIncome> insert(TypeIncome t) {
-		return ResponseEntity.ok(typeIncomeRepository.save(t));
+	public HashMap<TypeIncome, Integer> insert(TypeIncome t) {		
+		return GenericsFunctions.returnMapByObjects(t, typeIncomeRepository.save(t).getCode());	
 	}
 
 	@Override
-	public ResponseEntity<TypeIncome> update(TypeIncome t) {
+	public HashMap<TypeIncome, Integer> update(TypeIncome t) {
+		
 		if(t.getCode() > 0) {	
 			
-			return ResponseEntity.ok(typeIncomeRepository.save(t));		
+			return GenericsFunctions.returnMapByObjects(t, typeIncomeRepository.save(t).getCode());			
 		}
 	  
-		return ResponseEntity.notFound().build();
+		return GenericsFunctions.returnMapByObjects(t, 0);
 	}
 
 	@Override
@@ -40,6 +43,12 @@ public class TypeIncomeService implements GenericsCrud<TypeIncome>{
 	@Override
 	public ArrayList<TypeIncome> allList() {
 		return (ArrayList<TypeIncome>) typeIncomeRepository.findAll();
+	}
+
+	@Override
+	public ArrayList<TypeIncome> listById(int id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

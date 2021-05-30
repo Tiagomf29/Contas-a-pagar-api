@@ -9,5 +9,5 @@ import br.com.contasapi.domain.Payer;
 public interface PayerRespository extends JpaRepository<Payer, Integer>{
 
 	List<Payer>findByName(String name);
-	
+	List<Payer>findById(int cod);	
 }

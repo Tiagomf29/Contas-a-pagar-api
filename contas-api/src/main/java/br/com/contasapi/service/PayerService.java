@@ -1,12 +1,14 @@
 package br.com.contasapi.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import br.com.contasapi.domain.Payer;
+import br.com.contasapi.functions.utils.GenericsFunctions;
 import br.com.contasapi.genericsinterfaces.GenericsCrud;
 import br.com.contasapi.repository.PayerRespository;
 
@@ -15,22 +17,21 @@ public class PayerService implements GenericsCrud<Payer>{
 
 	@Autowired
 	PayerRespository payerRepository;
-		
 	@Override
-	public ResponseEntity<Payer> insert(Payer t) {
-		return ResponseEntity.ok(payerRepository.save(t));	
-	}
+	public HashMap<Payer, Integer> insert(Payer t) {				
+		return GenericsFunctions.returnMapByObjects(t, payerRepository.save(t).getCode());	
+	}	
 
 	@Override
-	public ResponseEntity<Payer> update(Payer t) {		
+	public HashMap<Payer, Integer> update(Payer t) {
 		
 		if(t.getCode() > 0) {	
 			
-			return ResponseEntity.ok(payerRepository.save(t));		
+			return GenericsFunctions.returnMapByObjects(t, payerRepository.save(t).getCode());			
 		}
 	  
-		return ResponseEntity.notFound().build();
-	}
+		return GenericsFunctions.returnMapByObjects(t, 0);
+	}	
 
 	@Override
 	public ResponseEntity<Payer> delete(int id) {
@@ -42,5 +43,12 @@ public class PayerService implements GenericsCrud<Payer>{
 	public ArrayList<Payer> allList() {
 		return (ArrayList<Payer>) payerRepository.findAll();
 	}
+
+	@Override
+	public ArrayList<Payer> listById(int cod) {
+		return (ArrayList<Payer>) payerRepository.findById(cod); 
+	}
+
+
 	
 }

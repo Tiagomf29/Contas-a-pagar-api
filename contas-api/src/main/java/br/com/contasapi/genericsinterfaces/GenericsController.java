@@ -20,5 +20,7 @@ public interface GenericsController<T> {
 	ResponseEntity <T> updateController  (@RequestBody T t);
 	@DeleteMapping("/delete/{cod}")
 	ResponseEntity <T> deleteController  (@PathVariable int cod);
+	@GetMapping("/consultId/{cod}")
+	ArrayList<T> listConsultIdController(@PathVariable int cod);
 	
 }

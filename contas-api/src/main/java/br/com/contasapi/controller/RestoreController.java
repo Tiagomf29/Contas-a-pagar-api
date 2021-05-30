@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.contasapi.domain.Restore;
+import br.com.contasapi.functions.utils.GenericsFunctions;
 import br.com.contasapi.genericsinterfaces.GenericsController;
 import br.com.contasapi.service.RestoreService;
 
@@ -25,17 +26,38 @@ public class RestoreController implements GenericsController<Restore>{
 
 	@Override
 	public ResponseEntity<Restore> insertController(Restore t) {
-		return restoreService.insert(t);
+		
+		Restore restore = (Restore) GenericsFunctions.returnObjectByMap(restoreService.insert(t));
+		
+		if(restore.getCode() == 0) {
+			return ResponseEntity.notFound().build();
+		}
+		
+		return ResponseEntity.ok(restore);
 	}
 
 	@Override
 	public ResponseEntity<Restore> updateController(Restore t) {
-		return restoreService.update(t);
+		
+		Restore restore = (Restore) GenericsFunctions.returnObjectByMap(restoreService.insert(t));
+		
+		if(restore.getCode() == 0) {
+			return ResponseEntity.notFound().build();
+		}
+		
+		return ResponseEntity.ok(restore);
 	}
 
 	@Override
 	public ResponseEntity<Restore> deleteController(int cod) {
 		return restoreService.delete(cod);
 	}
+
+	@Override
+	public ArrayList<Restore> listConsultIdController(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }

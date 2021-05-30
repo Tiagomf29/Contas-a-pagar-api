@@ -1,12 +1,14 @@
 package br.com.contasapi.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import br.com.contasapi.domain.Restore;
+import br.com.contasapi.functions.utils.GenericsFunctions;
 import br.com.contasapi.genericsinterfaces.GenericsCrud;
 import br.com.contasapi.repository.RestoreRepository;
 
@@ -17,23 +19,28 @@ public class RestoreService implements GenericsCrud<Restore>{
 	RestoreRepository restoreRepository;
 
 	@Override
-	public ResponseEntity<Restore> insert(Restore t) {
+	public HashMap<Restore, Integer> insert(Restore t) {
+		HashMap<Restore, Integer>retorno = new HashMap<>();
+		
 		ArrayList<Restore>newBackup = (ArrayList<Restore>) restoreRepository.findAll();
 		
+		int codReturn= 0;
+		
 		if(newBackup.isEmpty()) {		
-			return ResponseEntity.ok(restoreRepository.save(t));
+			codReturn = restoreRepository.save(t).getCode();
 		}
 		
-		return ResponseEntity.notFound().build();
+		retorno.put(t, codReturn);
+		return retorno;
 	}
-
+	
 	@Override
-	public ResponseEntity<Restore> update(Restore t) {
+	public HashMap<Restore, Integer> update(Restore t) {
+					
 		if (t.getCode() > 0) {
-			return ResponseEntity.ok(restoreRepository.save(t));
+			return GenericsFunctions.returnMapByObjects(t, restoreRepository.save(t).getCode());
 		}
-		
-		return ResponseEntity.notFound().build();
+		return GenericsFunctions.returnMapByObjects(t, 0);
 	}
 
 	@Override
@@ -45,6 +52,12 @@ public class RestoreService implements GenericsCrud<Restore>{
 	@Override
 	public ArrayList<Restore> allList() {
 		return (ArrayList<Restore>) restoreRepository.findAll();
+	}
+
+	@Override
+	public ArrayList<Restore> listById(int id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

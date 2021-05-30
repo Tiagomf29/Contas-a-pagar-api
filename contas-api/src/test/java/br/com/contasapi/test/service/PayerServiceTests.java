@@ -139,7 +139,7 @@ public class PayerServiceTests {
 		List<Payer> listPayer = new ArrayList<>();
 		listPayer = payerRespoitory.findByName("Teste Atualizar");
 		
-		Assertions.assertEquals(false,!listPayer.isEmpty());		
+		Assertions.assertEquals(true,!listPayer.isEmpty());		
 	} 	
 	
 	@Test

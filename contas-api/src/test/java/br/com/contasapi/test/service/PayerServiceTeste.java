@@ -29,8 +29,7 @@ public class PayerServiceTeste {
 	@Autowired
 	PayerService payerService;
 	@Autowired
-	PayerRespository payerRespoitory;
-	
+	PayerRespository payerRespoitory;	
 	/*
 	String corpo ="{\"code\":\"1\", \"name\":\"Teste nome\"}";
 	

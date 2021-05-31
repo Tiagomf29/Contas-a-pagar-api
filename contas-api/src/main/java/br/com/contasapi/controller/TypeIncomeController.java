@@ -48,8 +48,7 @@ public class TypeIncomeController implements GenericsController<TypeIncome>{
 
 	@Override
 	public ArrayList<TypeIncome> listConsultIdController(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return typeIncomeService.listByCod(id);
 	}
 
 }

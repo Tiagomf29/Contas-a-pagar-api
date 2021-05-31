@@ -1,7 +1,6 @@
 # Contas a pagar - api 
 API para o sistema de contas a pagar que está sendo desenvolvido na linguagem Java na versão 11 com Spring. <br /> 
-Sendo utilizado o banco de dados mysql em produção com flyway e o banco H2 para realização de testes de integração. <br />
-Integração continua habilitado no GitHUb.
+Sendo utilizado o banco de dados mysql em produção com flyway e o banco H2 para realização de testes de integração. Integração continua habilitado no GitHUb.
 
 #
 ### Dependências Spring (até o momento)

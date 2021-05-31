@@ -4,7 +4,6 @@ import static io.restassured.RestAssured.given;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
@@ -26,8 +25,7 @@ public class PayerControllerTests {
     public static void setup() {
         RestAssured.baseURI = "http://localhost:8080/payer";
     }
-    
-    @Test
+        
     public void getConsultAllPayer() {
     			
 		Response response = given().contentType(ContentType.JSON).
@@ -38,8 +36,6 @@ public class PayerControllerTests {
     	
     }
 
-
-    @Test
 	public void postInsertPayer() {
 		
 		Response response = given()
@@ -55,7 +51,6 @@ public class PayerControllerTests {
 		
 	}
 		
-    @Test
 	public void putUpdatePayer() {
 		
 		Response response = given()

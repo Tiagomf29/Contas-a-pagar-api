@@ -27,7 +27,6 @@ public class PayerControllerTests {
         RestAssured.baseURI = "http://localhost:8080/payer";
     }
      
-    @Test
     public void getConsultAllPayer() {
     			
 		Response response = given().contentType(ContentType.JSON).

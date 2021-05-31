@@ -18,7 +18,7 @@ Integração continua habilitado no GitHUb.
 #
 ###  Instalação Windows e Linux
 
-Para testar o projeto é necessário ter instalado um banco mysql rodando na porta 3306, com o usuário root e senha root. <br />
+Para testar o projeto é necessário ter instalado um banco mysql rodando na porta 3306, com o usuário root e senha root.
 Caso queira usar o banco de dados com outro usuário e senha é necessário alterar as configurações no arquivo application.properties do projeto.
 
 #

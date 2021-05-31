@@ -41,7 +41,7 @@ public class PayerServiceTests {
 			idGerado = value.getValue();
 		}	
 		
-		//payerRespoitory.deleteById(idGerado);
+		payerRespoitory.deleteById(idGerado);
 		
 		ArrayList<Payer> payer2 = new ArrayList<>();
 		

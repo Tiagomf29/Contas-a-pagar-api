@@ -46,7 +46,7 @@ public class TypeIncomeService implements GenericsCrud<TypeIncome>{
 	}
 
 	@Override
-	public ArrayList<TypeIncome> listById(int id) {
+	public ArrayList<TypeIncome> listByCod(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

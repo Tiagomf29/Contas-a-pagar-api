@@ -55,7 +55,7 @@ public class RestoreService implements GenericsCrud<Restore>{
 	}
 
 	@Override
-	public ArrayList<Restore> listById(int id) {
+	public ArrayList<Restore> listByCod(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

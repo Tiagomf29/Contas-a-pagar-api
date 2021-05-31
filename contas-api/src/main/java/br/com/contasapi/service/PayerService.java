@@ -45,7 +45,7 @@ public class PayerService implements GenericsCrud<Payer>{
 	}
 
 	@Override
-	public ArrayList<Payer> listById(int cod) {
+	public ArrayList<Payer> listByCod(int cod) {
 		return (ArrayList<Payer>) payerRepository.findById(cod); 
 	}
 

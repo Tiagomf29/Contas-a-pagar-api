@@ -54,7 +54,7 @@ public class BackupService implements GenericsCrud<Backup> {
 	}
 
 	@Override
-	public ArrayList<Backup> listById(int id) {
+	public ArrayList<Backup> listByCod(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

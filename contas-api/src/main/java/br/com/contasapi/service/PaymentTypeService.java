@@ -46,9 +46,8 @@ public class PaymentTypeService implements GenericsCrud<PaymentType> {
 	}
 
 	@Override
-	public ArrayList<PaymentType> listById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<PaymentType> listByCod(int id) {
+		return (ArrayList<PaymentType>) paymentTypeRepository.findByCode(id);
 	}
 
 

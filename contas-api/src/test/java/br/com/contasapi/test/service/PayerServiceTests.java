@@ -45,7 +45,7 @@ public class PayerServiceTests {
 		
 		ArrayList<Payer> payer2 = new ArrayList<>();
 		
-		payer2 = payerService.listById(idGerado);
+		payer2 = payerService.listByCod(idGerado);
 		
 		Assertions.assertNull(payer2);					
 				
@@ -89,7 +89,7 @@ public class PayerServiceTests {
 			idGerado = value.getValue();
 		}
 								
-		Optional<List<Payer>> list = Optional.ofNullable(payerService.listById(idGerado));
+		Optional<List<Payer>> list = Optional.ofNullable(payerService.listByCod(idGerado));
 		
 		Assertions.assertEquals(true,list.isPresent());				
 	}

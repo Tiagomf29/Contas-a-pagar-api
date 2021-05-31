@@ -48,7 +48,7 @@ public class PayerController implements GenericsController<Payer>{
 
 	@Override
 	public ArrayList<Payer> listConsultIdController(int cod) {
-		return payerService.listById(cod);
+		return payerService.listByCod(cod);
 	}
 
 	

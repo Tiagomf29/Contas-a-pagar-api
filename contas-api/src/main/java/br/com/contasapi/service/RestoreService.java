@@ -56,8 +56,7 @@ public class RestoreService implements GenericsCrud<Restore>{
 
 	@Override
 	public ArrayList<Restore> listByCod(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return (ArrayList<Restore>) restoreRepository.findByCode(id);
 	}
 
 }

@@ -55,8 +55,7 @@ public class RestoreController implements GenericsController<Restore>{
 
 	@Override
 	public ArrayList<Restore> listConsultIdController(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return restoreService.listByCod(id);
 	}
 
 

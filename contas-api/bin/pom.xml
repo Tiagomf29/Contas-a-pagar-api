@@ -30,12 +30,7 @@
 			<artifactId>flyway-core</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-			<optional>true</optional>
-		</dependency>
+		
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -46,8 +41,37 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
+		<dependency>
+		    <groupId>io.rest-assured</groupId>
+		    <artifactId>rest-assured</artifactId>
+		    <scope>test</scope>
+		</dependency>
+		<dependency>
+	        <groupId>io.rest-assured</groupId>
+	        <artifactId>rest-assured-all</artifactId>
+	        <version>4.3.1</version>
+	        <scope>test</scope>
+	    </dependency>
+	    
+	    <dependency>
+    		<groupId>com.h2database</groupId>
+    		<artifactId>h2</artifactId>
+    		<scope>runtime</scope>
+		</dependency>
+	    		
+		<!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-runner -->
+		<dependency>
+		    <groupId>org.junit.platform</groupId>
+		    <artifactId>junit-platform-runner</artifactId>
+		    <version>1.8.0-M1</version>
+		    <scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>

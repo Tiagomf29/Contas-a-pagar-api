@@ -55,8 +55,7 @@ public class BackupService implements GenericsCrud<Backup> {
 
 	@Override
 	public ArrayList<Backup> listByCod(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return (ArrayList<Backup>) backupRepository.findByCode(id);
 	}
 
 }

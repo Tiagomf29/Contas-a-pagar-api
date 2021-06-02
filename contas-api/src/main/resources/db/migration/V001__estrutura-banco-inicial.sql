@@ -31,7 +31,7 @@ constraint pk_payer primary key(code));
 create table user (
 code smallint auto_increment,
 full_name varchar(80)not null,
-cpf numeric(15,0) not null,
+cpf varchar(12)not null,
 login varchar(15) not null,
 password varchar(150) not null,
 constraint pk_user primary key(code));

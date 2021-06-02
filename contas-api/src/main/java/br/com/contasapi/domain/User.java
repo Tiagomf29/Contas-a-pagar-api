@@ -1,11 +1,19 @@
 package br.com.contasapi.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class User {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int code;
-	private short cpf;
+	private String cpf;
 	private String fullName;
-	private String login;
+	private String login;	
 	private String password;
 	
 	public int getCode() {
@@ -14,10 +22,10 @@ public class User {
 	public void setCode(int code) {
 		this.code = code;
 	}
-	public short getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
-	public void setCpf(short cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 	public String getFullName() {

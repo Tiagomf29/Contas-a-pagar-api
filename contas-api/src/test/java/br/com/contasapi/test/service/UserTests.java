@@ -33,6 +33,7 @@ public class UserTests {
 		
 		User user = new User();		
 		user.setLogin("Teste Delete");
+		user.setPassword("123");
 		
 		int idGerado = 0;
 		
@@ -56,6 +57,7 @@ public class UserTests {
 		
 		User user = new User();		
 		user.setLogin("Teste Salvar");
+		user.setPassword("123");
 		
 		int idGerado = 0;
 		
@@ -81,6 +83,7 @@ public class UserTests {
 		
 		User user = new User();		
 		user.setLogin("Teste Salvar");
+		user.setPassword("123");
 		
 		int idGerado = 0;
 		

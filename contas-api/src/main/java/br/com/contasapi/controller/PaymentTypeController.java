@@ -48,8 +48,7 @@ public class PaymentTypeController implements GenericsController<PaymentType>{
 
 	@Override
 	public ArrayList<PaymentType> listConsultIdController(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return paymentTypeService.listByCod(id);
 	}
 
 

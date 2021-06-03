@@ -54,8 +54,7 @@ public class BackupController implements GenericsController<Backup>{
 
 	@Override
 	public ArrayList<Backup> listConsultIdController(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return backupService.listByCod(id);
 	}
 
 	

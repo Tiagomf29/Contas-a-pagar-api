@@ -51,6 +51,4 @@ public class PaymentTypeService implements GenericsCrud<PaymentType> {
 	}
 
 
-
-
 }

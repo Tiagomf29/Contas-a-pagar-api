@@ -11,7 +11,7 @@ public interface GenericsCrud<T> {
 	HashMap<T, Integer> update(T t);
 	ResponseEntity<T>delete(int id);
 	ArrayList<T>allList();
-	ArrayList<T>listByCod(int id);
+	ArrayList<T> listByCod(int id);
 
 	
 }

@@ -48,7 +48,10 @@ public class UserService implements GenericsCrud<User>{
 
 	@Override
 	public ArrayList<User> listByCod(int id) {
+		// TODO Auto-generated method stub
 		return (ArrayList<User>) userRepository.findByCode(id);
 	}
+
+
 
 }

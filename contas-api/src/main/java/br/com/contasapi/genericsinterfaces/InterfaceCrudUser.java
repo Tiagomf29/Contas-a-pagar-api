@@ -5,13 +5,13 @@ import java.util.HashMap;
 
 import org.springframework.http.ResponseEntity;
 
-public interface GenericsCrud<T> {
+public interface InterfaceCrudUser<T> {
 
 	HashMap<T, Integer> insert(T t);
 	HashMap<T, Integer> update(T t);
 	ResponseEntity<T>delete(int id);
 	ArrayList<T>allList();
 	ArrayList<T> listByCod(int id);
-
+	Boolean validaLogin(String login, String password);
 	
 }

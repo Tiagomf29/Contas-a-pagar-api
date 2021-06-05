@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.contasapi.domain.Payer;
 import br.com.contasapi.functions.utils.GenericsFunctions;
-import br.com.contasapi.genericsinterfaces.GenericsController;
+import br.com.contasapi.genericsinterfaces.InterfaceGenericsController;
 import br.com.contasapi.service.PayerService;
 
 @RestController
 @RequestMapping("/payer")
-public class PayerController implements GenericsController<Payer>{
+public class PayerController implements InterfaceGenericsController<Payer>{
 		
 	@Autowired
 	PayerService payerService;
@@ -50,8 +50,6 @@ public class PayerController implements GenericsController<Payer>{
 	public ArrayList<Payer> listConsultIdController(int cod) {
 		return payerService.listByCod(cod);
 	}
-
-
 
 	
 }

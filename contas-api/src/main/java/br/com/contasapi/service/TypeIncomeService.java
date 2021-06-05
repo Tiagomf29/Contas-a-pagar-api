@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service;
 
 import br.com.contasapi.domain.TypeIncome;
 import br.com.contasapi.functions.utils.GenericsFunctions;
-import br.com.contasapi.genericsinterfaces.GenericsCrud;
+import br.com.contasapi.genericsinterfaces.InterfaceGenericsCrud;
 import br.com.contasapi.repository.TypeIncomeRepository;
 
 @Service
-public class TypeIncomeService implements GenericsCrud<TypeIncome>{
+public class TypeIncomeService implements InterfaceGenericsCrud<TypeIncome>{
 
 	@Autowired
 	TypeIncomeRepository typeIncomeRepository;

@@ -1,0 +1,1 @@
+insert into user (full_Name,cpf,login,password) values ("Teste","191","TMF","202cb962ac5975b964b7152d234b70");

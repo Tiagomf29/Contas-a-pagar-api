@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.contasapi.domain.Restore;
 import br.com.contasapi.functions.utils.GenericsFunctions;
-import br.com.contasapi.genericsinterfaces.GenericsController;
+import br.com.contasapi.genericsinterfaces.InterfaceGenericsController;
 import br.com.contasapi.service.RestoreService;
 
 @RestController
 @RequestMapping("/restore")
-public class RestoreController implements GenericsController<Restore>{
+public class RestoreController implements InterfaceGenericsController<Restore>{
 
 	@Autowired
 	RestoreService restoreService;

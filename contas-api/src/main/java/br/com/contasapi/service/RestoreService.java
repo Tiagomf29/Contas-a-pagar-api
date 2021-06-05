@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service;
 
 import br.com.contasapi.domain.Restore;
 import br.com.contasapi.functions.utils.GenericsFunctions;
-import br.com.contasapi.genericsinterfaces.GenericsCrud;
+import br.com.contasapi.genericsinterfaces.InterfaceGenericsCrud;
 import br.com.contasapi.repository.RestoreRepository;
 
 @Service
-public class RestoreService implements GenericsCrud<Restore>{
+public class RestoreService implements InterfaceGenericsCrud<Restore>{
 	
 	@Autowired
 	RestoreRepository restoreRepository;

@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.contasapi.domain.Backup;
 import br.com.contasapi.functions.utils.GenericsFunctions;
-import br.com.contasapi.genericsinterfaces.GenericsController;
+import br.com.contasapi.genericsinterfaces.InterfaceGenericsController;
 import br.com.contasapi.service.BackupService;
 
 @RestController
 @RequestMapping("backup")
-public class BackupController implements GenericsController<Backup>{
+public class BackupController implements InterfaceGenericsController<Backup>{
 
 	@Autowired
 	BackupService backupService;

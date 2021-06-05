@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service;
 
 import br.com.contasapi.domain.Backup;
 import br.com.contasapi.functions.utils.GenericsFunctions;
-import br.com.contasapi.genericsinterfaces.GenericsCrud;
+import br.com.contasapi.genericsinterfaces.InterfaceGenericsCrud;
 import br.com.contasapi.repository.BackupRepository;
 
 @Service
-public class BackupService implements GenericsCrud<Backup> {
+public class BackupService implements InterfaceGenericsCrud<Backup> {
 	
 	@Autowired
 	BackupRepository backupRepository;

@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service;
 
 import br.com.contasapi.domain.Payer;
 import br.com.contasapi.functions.utils.GenericsFunctions;
-import br.com.contasapi.genericsinterfaces.GenericsCrud;
+import br.com.contasapi.genericsinterfaces.InterfaceGenericsCrud;
 import br.com.contasapi.repository.PayerRespository;
 
 @Service
-public class PayerService implements GenericsCrud<Payer>{
+public class PayerService implements InterfaceGenericsCrud<Payer>{
 
 	@Autowired
 	PayerRespository payerRepository;

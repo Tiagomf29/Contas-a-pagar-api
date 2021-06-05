@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service;
 
 import br.com.contasapi.domain.PaymentType;
 import br.com.contasapi.functions.utils.GenericsFunctions;
-import br.com.contasapi.genericsinterfaces.GenericsCrud;
+import br.com.contasapi.genericsinterfaces.InterfaceGenericsCrud;
 import br.com.contasapi.repository.PaymentTypeRepository;
 
 @Service
-public class PaymentTypeService implements GenericsCrud<PaymentType> {
+public class PaymentTypeService implements InterfaceGenericsCrud<PaymentType> {
 	
 	@Autowired
 	PaymentTypeRepository paymentTypeRepository;

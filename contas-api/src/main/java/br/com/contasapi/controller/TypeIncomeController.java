@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.contasapi.domain.TypeIncome;
 import br.com.contasapi.functions.utils.GenericsFunctions;
-import br.com.contasapi.genericsinterfaces.GenericsController;
+import br.com.contasapi.genericsinterfaces.InterfaceGenericsController;
 import br.com.contasapi.service.TypeIncomeService;
 
 @RestController
 @RequestMapping("/typeIncome")
-public class TypeIncomeController implements GenericsController<TypeIncome>{
+public class TypeIncomeController implements InterfaceGenericsController<TypeIncome>{
 
 	@Autowired
 	TypeIncomeService typeIncomeService;

@@ -4,17 +4,18 @@ import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.contasapi.domain.User;
 import br.com.contasapi.functions.utils.GenericsFunctions;
-import br.com.contasapi.genericsinterfaces.GenericsController;
+import br.com.contasapi.genericsinterfaces.InterfaceUserController;
 import br.com.contasapi.service.UserService;
 
 @RestController
 @RequestMapping("/user")
-public class UserController implements GenericsController<User>{
+public class UserController implements InterfaceUserController<User>{
 
 	@Autowired
 	UserService userService;
@@ -49,5 +50,11 @@ public class UserController implements GenericsController<User>{
 	public ArrayList<User> listConsultIdController(int cod) {
 		return userService.listByCod(cod);
 	}
+	
+	@Override
+	public Boolean loginOk(String login, String senha) {				 		
+		return userService.validaLogin(login, senha);
+	}
+	
 
 }

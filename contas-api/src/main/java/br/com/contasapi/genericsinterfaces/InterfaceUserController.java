@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-public interface GenericsController<T> {
-	
+public interface InterfaceUserController<T> {
+
 	@GetMapping("/all")
 	ArrayList<T> listAllController ();
 	@PostMapping("/insert")
@@ -22,5 +22,9 @@ public interface GenericsController<T> {
 	ResponseEntity <T> deleteController  (@PathVariable int cod);
 	@GetMapping("/consultId/{cod}")
 	ArrayList<T> listConsultIdController(@PathVariable int cod);
+	@GetMapping("/login/{login}/senha/{senha}")
+	Boolean loginOk(@PathVariable String login, @PathVariable String senha );
+	
+	
 	
 }

@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.contasapi.domain.PaymentType;
 import br.com.contasapi.functions.utils.GenericsFunctions;
-import br.com.contasapi.genericsinterfaces.GenericsController;
+import br.com.contasapi.genericsinterfaces.InterfaceGenericsController;
 import br.com.contasapi.service.PaymentTypeService;
 
 @RestController
 @RequestMapping("paymentType")
-public class PaymentTypeController implements GenericsController<PaymentType>{
+public class PaymentTypeController implements InterfaceGenericsController<PaymentType>{
 
 	@Autowired
 	PaymentTypeService paymentTypeService;

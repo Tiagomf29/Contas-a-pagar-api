@@ -1,5 +1,5 @@
 # Contas a pagar - api 
-![fluxo de trabalho](https://github.com/Tiagomf29/Contas-a-pagar-api/actions/workflows/maven.yml/badge.svg) <br />
+![fluxo de trabalho](https://github.com/Tiagomf29/Contas-a-pagar-api/actions/workflows/maven.yml/badge.svg) <br /><br />
 API para o sistema de contas a pagar que está sendo desenvolvido na linguagem Java na versão 11 com Spring. <br /> 
 Sendo utilizado o banco de dados mysql em produção com flyway e o banco H2 para realização de testes de integração. Integração continua habilitado no GitHUb.
 

@@ -22,8 +22,8 @@ public interface InterfaceUserController<T> {
 	ResponseEntity <T> deleteController  (@PathVariable int cod);
 	@GetMapping("/consultId/{cod}")
 	ArrayList<T> listConsultIdController(@PathVariable int cod);
-	@GetMapping("/login/{login}/senha/{senha}")
-	Boolean loginOk(@PathVariable String login, @PathVariable String senha );
+	@GetMapping("/login")
+	Boolean loginOk(@RequestBody T t);
 	
 	
 	

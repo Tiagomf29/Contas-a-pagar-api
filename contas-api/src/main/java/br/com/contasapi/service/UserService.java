@@ -54,9 +54,9 @@ public class UserService implements InterfaceCrudUser<User>{
 	}
 
 	@Override
-	public Boolean validaLogin(String login, String password) {
+	public Boolean validaLogin(User t) {
 		
-		Optional<User> userLogin =  Optional.ofNullable(userRepository.findByLoginAndPassword(login, CriptografiaMD5.CriptografaSenha(password)));
+		Optional<User> userLogin =  Optional.ofNullable(userRepository.findByLoginAndPassword(t.getLogin(), CriptografiaMD5.CriptografaSenha(t.getPassword())));
 		return userLogin.isPresent();
 	}	
 

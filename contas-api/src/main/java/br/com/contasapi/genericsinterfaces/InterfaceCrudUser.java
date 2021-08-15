@@ -12,6 +12,6 @@ public interface InterfaceCrudUser<T> {
 	ResponseEntity<T>delete(int id);
 	ArrayList<T>allList();
 	ArrayList<T> listByCod(int id);
-	Boolean validaLogin(String login, String password);
+	Boolean validaLogin(T t);
 	
 }

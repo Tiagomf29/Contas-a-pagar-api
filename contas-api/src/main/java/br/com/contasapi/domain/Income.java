@@ -2,12 +2,30 @@ package br.com.contasapi.domain;
 
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Income {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int code;
+	
 	private LocalDate dateIncome;
+	
+	@ManyToOne
+	@JoinColumn(name = "user")
 	private User user;
+		
+	@ManyToOne
+	@JoinColumn(name = "typeIncome")
 	private TypeIncome typeIncome;
+	
 	private float value;
 	
 	public int getCode() {

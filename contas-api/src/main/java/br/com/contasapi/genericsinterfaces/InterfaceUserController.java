@@ -21,10 +21,8 @@ public interface InterfaceUserController<T> {
 	@DeleteMapping("/delete/{cod}")
 	ResponseEntity <T> deleteController  (@PathVariable int cod);
 	@GetMapping("/consultId/{cod}")
-	ArrayList<T> listConsultIdController(@PathVariable int cod);
+	ArrayList<T> listConsultIdController (@PathVariable int cod);
 	@GetMapping("/login")
 	Boolean loginOk(@RequestBody T t);
-	
-	
-	
+		
 }

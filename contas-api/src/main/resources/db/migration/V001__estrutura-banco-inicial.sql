@@ -58,9 +58,10 @@ constraint fk_account_payable_payer foreign key (payer) references payer(code),
 constraint fk_account_payable_payment_type foreign key(payment_type) references payment_type(code),
 constraint fk_account_payable foreign key(user) references user(code));
 
-create table launchAccountPay (
+create table launch_account_pay (
 code int auto_increment,
 account_payable int not null,
+date date not null,
 value float not null,
 parcel_installment int not null,
 constraint pk_launch_account_pay primary key (code),

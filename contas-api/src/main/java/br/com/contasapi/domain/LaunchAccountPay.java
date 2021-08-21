@@ -2,10 +2,24 @@ package br.com.contasapi.domain;
 
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class LaunchAccountPay {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int code;
+	
+	@ManyToOne
+	@JoinColumn(name = "account_payable")
 	private AccountPayable accountPayable;
+	
 	private LocalDate date;
 	private Float value;
 	private int parcelInstallment;

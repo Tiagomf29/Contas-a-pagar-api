@@ -1,12 +1,32 @@
 package br.com.contasapi.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class AccountPayable {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int code;
+	
 	private String description;
 	private int quantityPlots;
+	
+	@ManyToOne
+	@JoinColumn(name = "user")
 	private User user;
+	
+	@ManyToOne
+	@JoinColumn(name = "payer")
 	private Payer payer;
+	
+	@ManyToOne
+	@JoinColumn(name = "payment_type")
 	private PaymentType paymentType;	
 	
 	public User getUser() {

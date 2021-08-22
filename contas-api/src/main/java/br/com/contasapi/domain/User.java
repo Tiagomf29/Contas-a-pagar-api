@@ -13,23 +13,22 @@ public class User {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(nullable = false)
 	@ApiModelProperty(value = "Código único do usuário (Gerado automaticamente)")
 	private int code;
 	
-	@Column(nullable = false, length = 12)
+	@Column(length = 12)
 	@ApiModelProperty(value = "CPF do usuário")
 	private String cpf;
 	
-	@Column(nullable = false, length = 80)
+	@Column(length = 80)
 	@ApiModelProperty(value = "Nome completo do usuário")
 	private String fullName;
 	
-	@Column(nullable = false, length = 15)
+	@Column(length = 15)
 	@ApiModelProperty(value = "Descrição do login do usuário")
 	private String login;	
 	
-	@Column(nullable = false, length = 150)
+	@Column(length = 150)
 	@ApiModelProperty(value = "Senha do usuário")
 	private String password;
 	

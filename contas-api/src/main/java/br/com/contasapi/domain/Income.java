@@ -2,6 +2,7 @@ package br.com.contasapi.domain;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,23 +10,32 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
 public class Income {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(nullable = false)
+	@ApiModelProperty(value = "Codigo único da renda (Gerado automaticamente)")
 	private int code;
 	
+	@Column(nullable = false)
+	@ApiModelProperty(value = "Data da recebimento da renda")
 	private LocalDate dateIncome;
 	
 	@ManyToOne
 	@JoinColumn(name = "user")
+	@ApiModelProperty(value = "Usuário logado no sistema")
 	private User user;
 		
 	@ManyToOne
 	@JoinColumn(name = "typeIncome")
+	@ApiModelProperty(value = "Tipo da renda")
 	private TypeIncome typeIncome;
 	
+	@ApiModelProperty(value = "Valor da renda recebida")
 	private float value;
 	
 	public int getCode() {

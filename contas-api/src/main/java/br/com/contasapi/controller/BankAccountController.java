@@ -56,7 +56,7 @@ public class BankAccountController implements InterfaceGenericsController<BankAc
 	}
 
 	@Override
-	@ApiOperation(value = "Lista um resgitro de conta de banco por código")
+	@ApiOperation(value = "Lista um registro de conta de banco por código")
 	public ArrayList<BankAccount> listConsultIdController(int cod) {
 		return bankService.listByCod(cod);
 	}

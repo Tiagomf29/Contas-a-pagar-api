@@ -2,6 +2,7 @@ package br.com.contasapi.domain;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,19 +10,32 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
 public class LaunchAccountPay {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(nullable = false)
+	@ApiModelProperty(value = "Codigo único do lançamento da conta a pagar (Gerado automaticamente)")
 	private int code;
 	
 	@ManyToOne
 	@JoinColumn(name = "account_payable")
+	@ApiModelProperty(value = "Cabeçalho da conta a pagar)")	
 	private AccountPayable accountPayable;
 	
+	@Column(nullable = false)
+	@ApiModelProperty(value = "Data do pagamento do lançamento da conta a pagar")
 	private LocalDate date;
+	
+	@Column(nullable = false)
+	@ApiModelProperty(value = "Valor do lançamento da conta a pagar")
 	private Float value;
+	
+	@Column(nullable = false)
+	@ApiModelProperty(value = "Número da parcela do pagamento da conta a pagar")	
 	private int parcelInstallment;
 	
 	public int getCode() {

@@ -25,13 +25,13 @@ public class BackupController implements InterfaceGenericsController<Backup>{
 	BackupService backupService;
 	
 	@Override
-	@ApiOperation(value = "Lista todos os registros de backup")
+	@ApiOperation(value = "Lista todos os registros de backup de banco de dados")
 	public ArrayList<Backup> listAllController() {
 		return backupService.allList();
 	}
 
 	@Override
-	@ApiOperation(value = "Insere um registro de backup")
+	@ApiOperation(value = "Insere um registro de backup de banco de dados")
 	public ResponseEntity<Backup> insertController(Backup t) {
 		
 		Backup backup = (Backup) GenericsFunctions.returnObjectByMap(backupService.insert(t));
@@ -44,7 +44,7 @@ public class BackupController implements InterfaceGenericsController<Backup>{
 	}
 
 	@Override
-	@ApiOperation(value = "Atualiza um registro de backup")
+	@ApiOperation(value = "Atualiza um registro de backup de banco de dados")
 	public ResponseEntity<Backup> updateController(Backup t) {
 		Backup backup = (Backup) GenericsFunctions.returnObjectByMap(backupService.insert(t));
 		
@@ -56,13 +56,13 @@ public class BackupController implements InterfaceGenericsController<Backup>{
 	}
 
 	@Override
-	@ApiOperation(value = "Deleta um registro de backup")
+	@ApiOperation(value = "Deleta um registro de backup de banco de dados")
 	public ResponseEntity<Backup> deleteController(int cod) {
 		return backupService.delete(cod);
 	}
 
 	@Override
-	@ApiOperation(value = "Lista um registro de backup por código")
+	@ApiOperation(value = "Lista um registro de backup de banco de dados por código")
 	public ArrayList<Backup> listConsultIdController(int id) {
 		return backupService.listByCod(id);
 	}

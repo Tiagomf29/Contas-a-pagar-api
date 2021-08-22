@@ -14,10 +14,17 @@ import br.com.contasapi.repository.LaunchAccountPayRepository;
 
 @Service
 public class LaunchAccountPayService implements InterfaceGenericsCrud<LaunchAccountPay>{
+
 	@Autowired
 	LaunchAccountPayRepository launchAccountPayRepository;
 	
-	@Override
+	public LaunchAccountPayService(LaunchAccountPayRepository launchAccountPayRepositoryCreate) {
+		
+		launchAccountPayRepository = launchAccountPayRepositoryCreate;
+		
+	}
+	
+	
 	public HashMap<LaunchAccountPay, Integer> insert(LaunchAccountPay t) {
 		return GenericsFunctions.returnMapByObjects(t, launchAccountPayRepository.save(t).getCode());	
 	}

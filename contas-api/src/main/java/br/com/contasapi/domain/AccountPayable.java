@@ -1,11 +1,14 @@
 package br.com.contasapi.domain;
 
+import java.time.LocalDate;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
 @Entity
 public class AccountPayable {
@@ -13,6 +16,15 @@ public class AccountPayable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int code;
+	
+	@Transient
+	private LocalDate dateFirstPayable;
+	
+	@Transient	
+	private Float value;
+	
+	@Transient
+	private boolean amount;
 	
 	private String description;
 	private int quantityPlots;
@@ -66,6 +78,24 @@ public class AccountPayable {
 		this.quantityPlots = quantityPlots;
 	}
 	
-	
+	public LocalDate getDateFirstPayable() {
+		return dateFirstPayable;
+	}
+	public void setDateFirstPayable(LocalDate dateFirstPayable) {
+		this.dateFirstPayable = dateFirstPayable;
+	}
+	public Float getValue() {
+		return value;
+	}
+	public void setValue(Float value) {
+		this.value = value;
+	}
+	public boolean isAmount() {
+		return amount;
+	}
+	public void setAmount(boolean amount) {
+		this.amount = amount;
+	}	
+
 
 }

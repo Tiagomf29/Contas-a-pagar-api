@@ -14,6 +14,7 @@ Sendo utilizado o banco de dados mysql em produção com flyway e o banco H2 par
 - H2 DataBase
 - Junit
 - Rest Assured
+- Swagger
 
 #
 ###  Instalação Windows e Linux

@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotBlank;
 
 import io.swagger.annotations.ApiModelProperty;
 
@@ -21,7 +22,7 @@ public class Income {
 	@ApiModelProperty(value = "Codigo único da renda (Gerado automaticamente)")
 	private int code;
 	
-	@Column(nullable = false)
+	@NotBlank
 	@ApiModelProperty(value = "Data da recebimento da renda")
 	private LocalDate dateIncome;
 	
@@ -36,6 +37,7 @@ public class Income {
 	private TypeIncome typeIncome;
 	
 	@ApiModelProperty(value = "Valor da renda recebida")
+	@NotBlank
 	private float value;
 	
 	public int getCode() {

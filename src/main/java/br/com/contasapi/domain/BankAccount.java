@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotBlank;
 
 import io.swagger.annotations.ApiModelProperty;
 
@@ -25,7 +26,7 @@ public class BankAccount {
 	private User user;
 	
 	@ApiModelProperty(value = "Valor da conta")
-	@Column(nullable = false)
+	@NotBlank
 	private float value;
 	
 	public int getCode() {

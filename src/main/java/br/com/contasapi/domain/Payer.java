@@ -1,10 +1,11 @@
 package br.com.contasapi.domain;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import io.swagger.annotations.ApiModelProperty;
 
@@ -13,12 +14,12 @@ public class Payer {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(nullable = false)
 	@ApiModelProperty(value = "Codigo único (Gerado automaticamente)")
-	private int code;
+	private int code;	
 	
-	@Column(nullable = false, length = 40)
+	@Size(max = 40)
 	@ApiModelProperty(value = "Descrição do pagador da conta")
+	@NotBlank
 	private String name;
 	
 	public int getCode() {

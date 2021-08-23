@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import io.swagger.annotations.ApiModelProperty;
 
@@ -18,7 +20,6 @@ public class AccountPayable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(nullable = false)
 	@ApiModelProperty(value = "Codigo único do cabeçalho da conta a pagar (gerado automaticamente)")
 	private int code;
 	
@@ -29,20 +30,22 @@ public class AccountPayable {
 	
 	@Transient	
 	@ApiModelProperty(value = "Valor da conta a pagar. Pode ser o valor total ou o valor da parcela")
-	@Column(nullable = false)
+	@NotBlank
 	private Float value;
 	
 	@Transient
 	@ApiModelProperty(value = "Define se o valor informado no campo \"value\" será o valor total (true) ou o valor da parcela (false)")
-	@Column(nullable = false)
+	@NotBlank
 	private boolean amount;
 	
 	@ApiModelProperty(value = "Descrição da conta a pagar")
-	@Column(nullable = false, length = 50)
+	@NotBlank
+	@Size(max = 50)
 	private String description;
 	
 	@ApiModelProperty(value = "Quantidade de parcelas")
-	@Column(nullable = false, length = 6)
+	@NotBlank
+	@Size(max = 6)	
 	private int quantityPlots;
 	
 	@ManyToOne

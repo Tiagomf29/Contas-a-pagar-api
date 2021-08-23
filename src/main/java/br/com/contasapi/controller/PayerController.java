@@ -30,8 +30,9 @@ public class PayerController implements InterfaceGenericsController<Payer>{
 		return payerService.allList();	
 	}
 	
-	@Override
+	
 	@ApiOperation(value = "Insere um novo registro de pagador")
+	@Override
 	public ResponseEntity<Payer> insertController(Payer t) {		
 		return ResponseEntity.ok((Payer) GenericsFunctions.returnObjectByMap(payerService.insert(t)));
 	}

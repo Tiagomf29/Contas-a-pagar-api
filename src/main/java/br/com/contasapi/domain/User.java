@@ -1,10 +1,10 @@
 package br.com.contasapi.domain;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Size;
 
 import io.swagger.annotations.ApiModelProperty;
 
@@ -15,20 +15,20 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@ApiModelProperty(value = "Código único do usuário (Gerado automaticamente)")
 	private int code;
-	
-	@Column(length = 12)
+		
+	@Size(max = 12)
 	@ApiModelProperty(value = "CPF do usuário")
 	private String cpf;
-	
-	@Column(length = 80)
+		
+	@Size(max = 80)
 	@ApiModelProperty(value = "Nome completo do usuário")
 	private String fullName;
-	
-	@Column(length = 15)
+		
+	@Size(max = 15)
 	@ApiModelProperty(value = "Descrição do login do usuário")
 	private String login;	
-	
-	@Column(length = 150)
+		
+	@Size(max = 150)
 	@ApiModelProperty(value = "Senha do usuário")
 	private String password;
 	

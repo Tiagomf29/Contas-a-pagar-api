@@ -1,10 +1,11 @@
 package br.com.contasapi.domain;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import io.swagger.annotations.ApiModelProperty;
 
@@ -13,11 +14,11 @@ public class PaymentType {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(nullable = false)
 	@ApiModelProperty(value = "Codigo único do tipo de pagamento(Gerado automaticamente)")
 	private int code;
-	
-	@Column(nullable = false, length = 50)
+		
+	@NotBlank
+	@Size(max = 50)
 	@ApiModelProperty(value = "Descrição do tipo de pagamento da conta")
 	private String description;
 	

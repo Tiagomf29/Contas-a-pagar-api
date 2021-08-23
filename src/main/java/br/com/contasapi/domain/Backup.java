@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import io.swagger.annotations.ApiModelProperty;
 
@@ -16,8 +18,9 @@ public class Backup {
 	@Column(nullable = false)
 	@ApiModelProperty(value = "Codigo único do backup de dados (Gerado automaticamente)")
 	private int code;
-	
-	@Column(nullable = false, length = 200)
+		
+	@NotBlank
+	@Size(max = 200)
 	@ApiModelProperty(value = "Caminho do backup da dados")
 	private String patchBackup;
 	

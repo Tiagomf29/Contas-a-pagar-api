@@ -8,7 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.validation.constraints.NotBlank;
 
 import io.swagger.annotations.ApiModelProperty;
 
@@ -25,15 +24,12 @@ public class LaunchAccountPay {
 	@ApiModelProperty(value = "Cabeçalho da conta a pagar)")	
 	private AccountPayable accountPayable;
 	
-	@NotBlank
 	@ApiModelProperty(value = "Data do pagamento do lançamento da conta a pagar")
 	private LocalDate date;
 	
-	@NotBlank
 	@ApiModelProperty(value = "Valor do lançamento da conta a pagar")
 	private Float value;
 	
-	@NotBlank
 	@ApiModelProperty(value = "Número da parcela do pagamento da conta a pagar")	
 	private int parcelInstallment;
 	

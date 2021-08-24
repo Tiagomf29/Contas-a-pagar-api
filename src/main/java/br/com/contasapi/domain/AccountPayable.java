@@ -2,7 +2,6 @@ package br.com.contasapi.domain;
 
 import java.time.LocalDate;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import io.swagger.annotations.ApiModelProperty;
@@ -24,18 +24,17 @@ public class AccountPayable {
 	private int code;
 	
 	@Transient
-	@Column(nullable = false)
+	@NotNull
 	@ApiModelProperty(value = "Data do primeiro pagamento da conta a pagar")
 	private LocalDate dateFirstPayable;
 	
 	@Transient	
+	@NotNull
 	@ApiModelProperty(value = "Valor da conta a pagar. Pode ser o valor total ou o valor da parcela")
-	@NotBlank
 	private Float value;
 	
 	@Transient
 	@ApiModelProperty(value = "Define se o valor informado no campo \"value\" será o valor total (true) ou o valor da parcela (false)")
-	@NotBlank
 	private boolean amount;
 	
 	@ApiModelProperty(value = "Descrição da conta a pagar")
@@ -44,8 +43,6 @@ public class AccountPayable {
 	private String description;
 	
 	@ApiModelProperty(value = "Quantidade de parcelas")
-	@NotBlank
-	@Size(max = 6)	
 	private int quantityPlots;
 	
 	@ManyToOne

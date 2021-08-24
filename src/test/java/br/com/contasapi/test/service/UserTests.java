@@ -33,6 +33,8 @@ public class UserTests {
 		
 		User user = new User();		
 		user.setLogin("Teste Delete");
+		user.setCpf("07008488855");
+		user.setFullName("Teste nome completo");
 		user.setPassword("123");
 		
 		int idGerado = 0;
@@ -57,6 +59,8 @@ public class UserTests {
 		
 		User user = new User();		
 		user.setLogin("Teste Salvar");
+		user.setFullName("Teste Salvar");
+		user.setCpf("07008488855");
 		user.setPassword("123");
 		
 		int idGerado = 0;
@@ -68,6 +72,8 @@ public class UserTests {
 		
 		User user2 = new User();
 		user2.setCode(idGerado);
+		user2.setFullName("Teste nome completo");
+		user2.setCpf("07008488855");
 		user2.setLogin("Teste Atualizar");
 		
 		userService.update(user2);
@@ -83,6 +89,8 @@ public class UserTests {
 		
 		User user = new User();		
 		user.setLogin("Teste Salvar");
+		user.setFullName("Teste nome completo Salvar");
+		user.setCpf("07008488855");
 		user.setPassword("123");
 		
 		int idGerado = 0;

@@ -18,7 +18,7 @@ import io.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping("/user")
 @Api(value = "Api Rest de usuários")
-@CrossOrigin(origins = "*")
+@CrossOrigin("*")
 public class UserController implements InterfaceUserController<User>{
 
 	@Autowired
@@ -62,8 +62,12 @@ public class UserController implements InterfaceUserController<User>{
 	
 	@Override
 	@ApiOperation(value = "Valida entrada do usuário no sistema")
-	public Boolean loginOk(User t) {				 		
-		return userService.validaLogin(t);
+	public Boolean loginOk(String user, String password) {	
+		User oUser = new User();
+		oUser.setLogin(user);
+		oUser.setPassword(password);
+		
+		return userService.validaLogin(oUser);
 	}
 	
 

@@ -1,16 +1,19 @@
 package br.com.contasapi.controller;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.contasapi.domain.Payer;
 import br.com.contasapi.functions.utils.GenericsFunctions;
 import br.com.contasapi.genericsinterfaces.InterfaceGenericsController;
+import br.com.contasapi.repository.PayerRespository;
 import br.com.contasapi.service.PayerService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -23,6 +26,9 @@ public class PayerController implements InterfaceGenericsController<Payer>{
 		
 	@Autowired
 	PayerService payerService;
+	
+	@Autowired
+	PayerRespository payerRepository;
 	
 	@Override
 	@ApiOperation(value = "Lista todos os registros de pagadores")
@@ -60,6 +66,12 @@ public class PayerController implements InterfaceGenericsController<Payer>{
 	@ApiOperation(value = "Consulta um registro de pagador por código")
 	public ArrayList<Payer> listConsultIdController(int cod) {
 		return payerService.listByCod(cod);
+	}
+	
+	@GetMapping("teste")
+	public ArrayList<Payer> listaTeste() throws SQLException{
+		
+		return (ArrayList<Payer>) payerRepository.listaPayer();
 	}
 
 	

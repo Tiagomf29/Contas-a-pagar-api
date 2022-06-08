@@ -2,37 +2,44 @@ package br.com.contasapi.controller;
 
 import java.util.ArrayList;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.contasapi.domain.Restore;
 import br.com.contasapi.functions.utils.GenericsFunctions;
-import br.com.contasapi.genericsinterfaces.InterfaceGenericsController;
 import br.com.contasapi.service.RestoreService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
-@RequestMapping("/restore")
+@RequestMapping("/restorations")
 @Api(value = "Api Rest de registro de restore do banco de dados")
 @CrossOrigin(origins = "*")
-public class RestoreController implements InterfaceGenericsController<Restore>{
+public class RestoreController{
 
 	@Autowired
 	RestoreService restoreService;
 	
-	@Override
+	@GetMapping
 	@ApiOperation(value = "Lista todos os registros de restore de banco de dados")
-	public ArrayList<Restore> listAllController() {
+	public ArrayList<Restore> listAllRestorations() {
 		return restoreService.allList();
 	}
 
-	@Override
+	@PostMapping
 	@ApiOperation(value = "Insere um novo registro de restore de banco de dados")
-	public ResponseEntity<Restore> insertController(Restore t) {
+	public ResponseEntity<Restore> insertRestore(@Valid @RequestBody Restore t) {
 		
 		Restore restore = (Restore) GenericsFunctions.returnObjectByMap(restoreService.insert(t));
 		
@@ -43,9 +50,9 @@ public class RestoreController implements InterfaceGenericsController<Restore>{
 		return ResponseEntity.ok(restore);
 	}
 
-	@Override
+	@PutMapping
 	@ApiOperation(value = "Atualiza um registro de restore de banco de dados")
-	public ResponseEntity<Restore> updateController(Restore t) {
+	public ResponseEntity<Restore> updateRestore(@Valid @RequestBody Restore t) {
 		
 		Restore restore = (Restore) GenericsFunctions.returnObjectByMap(restoreService.insert(t));
 		
@@ -56,17 +63,16 @@ public class RestoreController implements InterfaceGenericsController<Restore>{
 		return ResponseEntity.ok(restore);
 	}
 
-	@Override
+	@DeleteMapping("/{cod}")
 	@ApiOperation(value = "Deleta um registro de restore de banco de dados")
-	public ResponseEntity<Restore> deleteController(int cod) {
+	public ResponseEntity<Restore> deleteRestore(@PathVariable int cod) {
 		return restoreService.delete(cod);
 	}
 
-	@Override
+	@GetMapping("/{id}")
 	@ApiOperation(value = "Consulta um registro de restore de banco de dados por código")
-	public ArrayList<Restore> listConsultIdController(int id) {
+	public ArrayList<Restore> listConsultIdRestore(@PathVariable int id) {
 		return restoreService.listByCod(id);
 	}
-
 
 }

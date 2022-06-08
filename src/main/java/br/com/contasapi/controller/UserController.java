@@ -2,43 +2,50 @@ package br.com.contasapi.controller;
 
 import java.util.ArrayList;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.contasapi.domain.User;
 import br.com.contasapi.functions.utils.GenericsFunctions;
-import br.com.contasapi.genericsinterfaces.InterfaceUserController;
 import br.com.contasapi.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
 @Api(value = "Api Rest de usuários")
 @CrossOrigin("*")
-public class UserController implements InterfaceUserController<User>{
+public class UserController{
 
 	@Autowired
 	UserService userService;
 	
-	@Override
+	@GetMapping
 	@ApiOperation(value = "Lista todos os registros de usuário")
-	public ArrayList<User> listAllController() {
+	public ArrayList<User> listAllUsers() {
 		return userService.allList();
 	}
 
-	@Override
+	@PostMapping
 	@ApiOperation(value = "Insere um novo registro de usuário")
-	public ResponseEntity<User> insertController(User t) {
+	public ResponseEntity<User> insertUser(@Valid @RequestBody User t) {
 		return ResponseEntity.ok((User) GenericsFunctions.returnObjectByMap(userService.insert(t)));
 	}
 
-	@Override
+	@PutMapping
 	@ApiOperation(value = "Atualiza um registro de usuário")
-	public ResponseEntity<User> updateController(User t) {
+	public ResponseEntity<User> updateUser(@Valid @RequestBody User t) {
 		User newUser = (User) GenericsFunctions.returnObjectByMap(userService.update(t));
 		
 		if(newUser.getCode() != 0) {
@@ -48,21 +55,21 @@ public class UserController implements InterfaceUserController<User>{
 		return ResponseEntity.notFound().build();
 	}
 
-	@Override
+	@DeleteMapping("/{cod}")
 	@ApiOperation(value = "Deleta um registro de usuário")
-	public ResponseEntity<User> deleteController(int cod) {
+	public ResponseEntity<User> deleteUser(@PathVariable int cod) {
 		return userService.delete(cod); 
 	}
 
-	@Override
+	@GetMapping("/{cod}")
 	@ApiOperation(value = "Consulta um registro de usuário por código")
-	public ArrayList<User> listConsultIdController(int cod) {
+	public ArrayList<User> listConsultIdUser(@PathVariable int cod) {
 		return userService.listByCod(cod);
 	}
 	
-	@Override
+	@GetMapping("/{user}/{password}")
 	@ApiOperation(value = "Valida entrada do usuário no sistema")
-	public Boolean loginOk(String user, String password) {	
+	public Boolean loginOk(@PathVariable String user, @PathVariable String password) {	
 		User oUser = new User();
 		oUser.setLogin(user);
 		oUser.setPassword(password);

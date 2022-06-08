@@ -14,15 +14,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 public interface InterfaceGenericsController<T> {
 	
-	@GetMapping("/all")
-	ArrayList<T> listAllController ();
-	@PostMapping("/insert")
-	ResponseEntity<T> insertController  (@Valid @RequestBody T t);
-	@PutMapping("/update")
-	ResponseEntity <T> updateController  (@Valid @RequestBody T t);
-	@DeleteMapping("/delete/{cod}")
-	ResponseEntity <T> deleteController  (@PathVariable int cod);
-	@GetMapping("/consultId/{cod}")
-	ArrayList<T> listConsultIdController(@PathVariable int cod);
+	@GetMapping
+	public ArrayList<T> listAllController ();
+	@PostMapping
+	public ResponseEntity<T> insertController  (@Valid @RequestBody T t);
+	@PutMapping
+	public ResponseEntity <T> updateController  (@Valid @RequestBody T t);
+	@DeleteMapping("/{cod}")
+	public ResponseEntity <T> deleteController  (@PathVariable int cod);
+	@GetMapping("/{cod}")
+	public ArrayList<T> listConsultIdController(@PathVariable int cod);
 	
 }
